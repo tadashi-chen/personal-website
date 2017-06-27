@@ -1,9 +1,10 @@
-let gvFnResize = function () {
-    let clientWidth = document.documentElement.clientWidth;
-    if (clientWidth < 980) {
-    	document.querySelector("html").style.fontSize = clientWidth / 360 * 312.5 + "%";
-    }
-}
-gvFnResize();
+document.onready = function(e) {
+	let fnResize = function () {
+	    let clientWidth = document.documentElement.clientWidth;
+	    document.querySelector("html").style.fontSize = clientWidth < 600 ?
+	    	clientWidth / 360 * 312.5 + "%" : '300%';
+	}
+	fnResize();
 
-window.onresize = gvFnResize;
+	window.onresize = fnResize;
+}

@@ -1,0 +1,36 @@
+@media screen and (max-width: 600px) and (orientation: portrait) {
+  .main-outer .main-inner {
+    width: 86%;
+    height: 3.2rem;
+    border-radius: .3rem;
+  }
+  .main-outer .main-inner h1 {
+    font-size: .38rem;
+    padding: .24rem .2rem .02rem;
+  }
+  .main-outer .main-inner p {
+    font-size: .24rem;
+  }
+  .main-outer .main-inner .subjects > div {
+    font-size: .88rem;
+    padding-top: .42rem;
+  }
+}
+@media screen and (min-width: 601px) {
+  .main-outer .main-inner {
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+  }
+  .main-outer .main-inner h1 {
+    font-size: 26px;
+    padding: 40px 0 6px;
+  }
+  .main-outer .main-inner p {
+    font-size: 14px;
+  }
+  .main-outer .main-inner .subjects > div {
+    font-size: 60px;
+    padding-top: 50px;
+  }
+}

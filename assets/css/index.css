@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  background-color: #f3f3f3;
+  /*background-color: #f3f3f3;*/
 }
 
 .main-outer {
@@ -9,10 +9,42 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: url("/assets/img/wallpaper1.jpg") no-repeat;
 }
 .main-outer .main-inner {
-  width: 6.4rem;
-  height: 3rem;
-  border-radius: .3rem;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #eee;
+}
+.main-outer .main-inner h1 {
+  text-align: center;
+  font-weight: normal;
+}
+.main-outer .main-inner p {
+  text-align: center;
+}
+.main-outer .main-inner .subjects {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.main-outer .main-inner .subjects > div {
+  flex: 1;
+  text-align: center;
+}
+.main-outer .main-inner .subjects > div span {
+  cursor: pointer;
+}
+.main-outer .main-inner .subjects .icon-left > a:hover span:before,
+.main-outer .main-inner .subjects .icon-center > a:hover span:before,
+.main-outer .main-inner .subjects .icon-right > a:hover span:before {
+  color: #FFCC33;
+}
+.main-outer .main-inner .subjects .icon-left {
+  text-align: right;
+}
+.main-outer .main-inner .subjects .icon-right {
+  text-align: left;
 }

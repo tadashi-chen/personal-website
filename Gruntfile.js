@@ -8,8 +8,30 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    './dist/js/base.min.js': './assets/js/base.js'
+                    './dist/assets/js/base.min.js': './assets/js/base.js'
                 }
+            }
+        },
+        copy: {
+            main: {
+                files: [{
+                    expand: true, 
+                    cwd: "./assets/css/fonts/", 
+                    src: ['*'], 
+                    dest: './dist/assets/css/fonts/', 
+                    filter: 'isFile' 
+                }, {
+                    expand: true, 
+                    cwd: "./assets/img/", 
+                    src: ['*'], 
+                    dest: './dist/assets/img/', 
+                    filter: 'isFile' 
+                }, {
+                    expand: true, 
+                    src: ['favicon.ico'], 
+                    dest: './dist/', 
+                    filter: 'isFile' 
+                }],
             }
         },
         cssmin: {
@@ -17,15 +39,33 @@ module.exports = function(grunt) {
                 files: [{
                     expand: false, // true: 压缩为多个文件 false: 合并为一个文件
                     // cwd: 'assets/css/',
-                    src: ['./assets/css/base.css', './assets/css/reset.css', './assets/css/media.css', './assets/css/index.css'],
+                    src: [
+                        './assets/css/style.css',
+                        './assets/css/base.css',
+                        './assets/css/reset.css',
+                        './assets/css/media.css',
+                        './assets/css/index.css'
+                    ],
                     // src: ['base.css', 'reset.css', 'media.css', 'index.css'],
-                    dest: './dist/css/base.min.css',
+                    dest: './dist/assets/css/base.min.css',
                     // ext: '.min.css'
                 }]
             }
         },
+        htmlmin: { // Task
+            main: { // Target
+                options: { // Target options
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: { // Dictionary of files
+                    './dist/index.html': './index.html', // 'destination': 'source'
+                    // 'dist/contact.html': 'src/contact.html'
+                }
+            }
+        },
         sass: {
-            dist: {
+            main: {
                 options: {
                     style: 'expanded',
                     sourcemap: 'none'
@@ -42,7 +82,7 @@ module.exports = function(grunt) {
             },
             release: {
                 files: [
-                    { './dist/js/base.min.js': ['./dist/js/base.min.js'] }
+                    { './dist/assets/js/base.min.js': ['./dist/assets/js/base.min.js'] }
                 ]
             }
         },
@@ -62,11 +102,13 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask("default", ["watch"]);
-    grunt.registerTask("release", ["babel", "uglify", "cssmin"]);
+    grunt.registerTask("release", ["babel", "uglify", "cssmin", "htmlmin", "copy"]);
 }

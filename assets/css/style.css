@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?8twupx');
-  src:  url('fonts/icomoon.eot?8twupx#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?8twupx') format('truetype'),
-    url('fonts/icomoon.woff?8twupx') format('woff'),
-    url('fonts/icomoon.svg?8twupx#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?fn7izy');
+  src:  url('fonts/icomoon.eot?fn7izy#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fn7izy') format('truetype'),
+    url('fonts/icomoon.woff?fn7izy') format('woff'),
+    url('fonts/icomoon.svg?fn7izy#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-date:before {
+  content: "\e904";
+}
+.icon-archive:before {
+  content: "\e902";
+}
+.icon-back-to-top:before {
+  content: "\e903";
+}
+.icon-go:before {
+  content: "\e905";
+}
+.icon-goto:before {
+  content: "\e906";
+}
+.icon-home-page:before {
+  content: "\e907";
+}
+.icon-search:before {
+  content: "\e908";
+}
 .icon-github:before {
   content: "\e900";
   color: #09c;

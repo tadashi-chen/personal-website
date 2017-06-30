@@ -73,6 +73,8 @@ module.exports = function(grunt) {
                 files: [
                     { './assets/css/index.css': './assets/css/index.scss' },
                     { './assets/css/media.css': './assets/css/media.scss' },
+                    { './blog/assets/css/index.css': './blog/assets/css/index.scss' },
+                    { './blog/assets/css/media.css': './blog/assets/css/media.scss' },
                 ]
             }
         },
@@ -90,7 +92,9 @@ module.exports = function(grunt) {
             css: {
                 files: [
                     './assets/css/index.scss',
-                    './assets/css/media.scss'
+                    './assets/css/media.scss',
+                    './blog/assets/css/index.scss',
+                    './blog/assets/css/media.scss'
                 ],
                 tasks: ['sass'],
                 options: {

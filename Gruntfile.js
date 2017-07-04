@@ -15,22 +15,22 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [{
-                    expand: true, 
-                    cwd: "./assets/css/fonts/", 
-                    src: ['*'], 
-                    dest: './dist/assets/css/fonts/', 
-                    filter: 'isFile' 
+                    expand: true,
+                    cwd: "./assets/css/fonts/",
+                    src: ['*'],
+                    dest: './dist/assets/css/fonts/',
+                    filter: 'isFile'
                 }, {
-                    expand: true, 
-                    cwd: "./assets/img/", 
-                    src: ['*'], 
-                    dest: './dist/assets/img/', 
-                    filter: 'isFile' 
+                    expand: true,
+                    cwd: "./assets/img/",
+                    src: ['*'],
+                    dest: './dist/assets/img/',
+                    filter: 'isFile'
                 }, {
-                    expand: true, 
-                    src: ['favicon.ico'], 
-                    dest: './dist/', 
-                    filter: 'isFile' 
+                    expand: true,
+                    src: ['favicon.ico'],
+                    dest: './dist/',
+                    filter: 'isFile'
                 }],
             }
         },
@@ -51,6 +51,61 @@ module.exports = function(grunt) {
                     // ext: '.min.css'
                 }]
             }
+        },
+        md: {
+            all: {
+                files: [{
+                    expand: true,
+                    cwd: './blog/post/',
+                    src: '*.md',
+                    dest: './blog/dist/',
+                    ext: '.html'
+                }]
+            }
+        },
+        markdown: {
+            all: {
+                options: {
+                    template: './blog/theme/tpl-blog.html',
+                    // markdownOptions: {
+                    //     // gfm: true,
+                    //     // highlight: 'manual',
+                    //     codeLines: {
+                    //         before: '<span>',
+                    //         after: '</span>'
+                    //     }
+                    // }
+                    codeLines: {
+                        before: '<span>',
+                        after: '</span>'
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: './blog/post/',
+                    src: '*.md',
+                    dest: './blog/dist/',
+                    ext: '.html'
+                }]
+            }
+        },
+        md2html: {
+            multiple_files: {
+                options: {},
+                files: [{
+                    expand: true,
+                    cwd: './blog/post/',
+                    src: '*.md',
+                    dest: './blog/publish/',
+                    ext: '.html'
+                }]
+            }
+        },
+        md_html: {
+            options: {},
+            files: {
+                'dest/my.html': ['src/my.md', 'src/header.md'],
+            },
         },
         htmlmin: { // Task
             main: { // Target
@@ -102,6 +157,11 @@ module.exports = function(grunt) {
                 },
             }
         },
+        debug: {
+            options: {
+                // open: false // do not open node-inspector in Chrome automatically 
+            }
+        },
 
     });
 
@@ -112,6 +172,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-debug-inspector');
+    grunt.loadNpmTasks('grunt-markdown');
+    grunt.loadNpmTasks('grunt-md2html');
+    grunt.loadNpmTasks('grunt-md-html');
+    grunt.loadNpmTasks('grunt-md');
 
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("release", ["babel", "uglify", "cssmin", "htmlmin", "copy"]);

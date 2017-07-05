@@ -295,6 +295,8 @@ module.exports = function(grunt) {
         });
 
         let lis = '';
+        let archives = '';
+        let curYear;
         for (let i = 0; i < blogs.length; i++) {
             let blog = blogs[i];
             lis += `
@@ -304,13 +306,35 @@ module.exports = function(grunt) {
                     <p>${blog.content}</p>
                     <div class="read-more"><a href="${blog.url}">阅读更多<b class="icon-goto"></b></a></div>
                 </li>`;
+
+            let dateStr = blog.date.format('yyyy/MM/dd')
+            
+            if (curYear === dateStr.substr(0, 4)) {
+                archives += `<li><span>${dateStr}</span><a href="">${blog.title}</a></li>`;
+            } else {
+                curYear = dateStr.substr(0, 4);
+                if (archives) {
+                    archives += '</ul></div>';
+                }
+                archives += `
+                    <div class="year-blog">
+                        <h2>${blog.date.getFullYear()}</h2>
+                        <ul>
+                            <li><span>${dateStr}</span><a href="">${blog.title}</a></li>
+                `;
+            }
             
         }
+        archives += '</ul></div>';
 
         var tpl = grunt.file.read(path.join(__dirname, 'blog/theme/template.html'));
         grunt.file.write(path.join(__dirname, 'blog/index.html'), tpl.replace('$content', lis));
 
+        var tplArchive = grunt.file.read(path.join(__dirname, 'blog/theme/tpl-archive.html'));
+        grunt.file.write(path.join(__dirname, 'blog/archive.html'), tplArchive.replace('$content', archives));
+
         grunt.log.writeln('index.html created.');
+        grunt.log.writeln('archive.html created.');
     });
 
     grunt.registerMultiTask('tag', '', function() {

@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                 src: ['./dist/blog/']
             },
             website: {
-                src: ['./dist']
+                src: ['./dist/*']
             }
         },
         copy: {
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: {
-                    './dist/index.html': './index.html'
+                    './dist/index.html': './dist/index.html'
                 }
             },
             blog: {
@@ -150,14 +150,14 @@ module.exports = function(grunt) {
             all: {
                 options: {
                     template: './blog/theme/tpl-blog.html',
-                    // markdownOptions: {
-                    //     // gfm: true,
-                    //     // highlight: 'manual',
-                    //     codeLines: {
-                    //         before: '<span>',
-                    //         after: '</span>'
-                    //     }
-                    // }
+                    markdownOptions: {
+                        gfm: true,
+                        highlight: 'manual',
+                        codeLines: {
+                            before: '<span>',
+                            after: '</span>'
+                        }
+                    }
                 },
                 files: [{
                     expand: true,
@@ -196,9 +196,17 @@ module.exports = function(grunt) {
         },
         //更换引入css与js的标签
         tag: {
-            // website: {
-
-            // },
+            website: {
+                files: [{
+                    expand: true,
+                    cwd: './',
+                    src: '*.html',
+                    dest: './dist/',
+                    ext: '.html'
+                }],
+                js: '<script src="/assets/js/base.min.js"></script>',
+                css: '<link rel="stylesheet" type="text/css" href="/assets/css/base.min.css">'
+            },
             //博客首页与归档
             blog: {
                 files: [{
@@ -308,7 +316,7 @@ module.exports = function(grunt) {
                 </li>`;
 
             let dateStr = blog.date.format('yyyy/MM/dd')
-            
+
             if (curYear === dateStr.substr(0, 4)) {
                 archives += `<li><span>${dateStr}</span><a href="">${blog.title}</a></li>`;
             } else {
@@ -323,7 +331,7 @@ module.exports = function(grunt) {
                             <li><span>${dateStr}</span><a href="">${blog.title}</a></li>
                 `;
             }
-            
+
         }
         archives += '</ul></div>';
 
@@ -364,7 +372,7 @@ module.exports = function(grunt) {
                         break;
                     }
                 }
-                grunt.file.write(filepath, src.join('\n'));
+                grunt.file.write(f.dest, src.join('\n'));
 
             });
 
@@ -383,7 +391,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("default", ["watch"]);
     //网站主页打包发布
-    grunt.registerTask("release", ["babel:website", "uglify:website", "cssmin:website", "htmlmin:website", "copy:website"]);
+    grunt.registerTask("website", ["clean:website", "babel:website", "uglify:website", "cssmin:website", "tag:website", "htmlmin:website", "copy:website"]);
     //博客生成静态网页文件
     grunt.registerTask("generate", ["markdown", "page"]);
     //博客打包发布    

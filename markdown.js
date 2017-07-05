@@ -124,8 +124,12 @@ module.exports = function(grunt) {
             var [info, content] = grunt.file.read(src).split('-----');
             info = JSON.parse(info);
 
+            if (info.title) {
+                template = template.replace(/\$title/g, info.title)
+                template = template.replace(/\$date/g, new Date(info.date).format('yyyy年MM月dd日'))
+            }
+            
             var content = markdown.markdown( content, options, template );
-            info.title && (content = content.replace('<title></title>', `<title>${info.title}</title>`))
 
             var date = new Date(info.date);
             var filePath = orig + date.format('yyyy/MM/') + dest.split('/').pop();

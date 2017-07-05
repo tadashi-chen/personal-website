@@ -309,7 +309,7 @@ module.exports = function(grunt) {
             let blog = blogs[i];
             lis += `
                 <li>
-                    <h2><a href="${blog.url}">${blog.title}</a></h2>
+                    <h1><a href="${blog.url}">${blog.title}</a></h1>
                     <div class="icon-date date">${blog.date.format('yyyy年MM月dd日')}</div>
                     <p>${blog.content}</p>
                     <div class="read-more"><a href="${blog.url}">阅读更多<b class="icon-goto"></b></a></div>
@@ -318,7 +318,7 @@ module.exports = function(grunt) {
             let dateStr = blog.date.format('yyyy/MM/dd')
 
             if (curYear === dateStr.substr(0, 4)) {
-                archives += `<li><span>${dateStr}</span><a href="">${blog.title}</a></li>`;
+                archives += `<li><span>${dateStr}</span><a href="${blog.url}">${blog.title}</a></li>`;
             } else {
                 curYear = dateStr.substr(0, 4);
                 if (archives) {
@@ -328,16 +328,18 @@ module.exports = function(grunt) {
                     <div class="year-blog">
                         <h2>${blog.date.getFullYear()}</h2>
                         <ul>
-                            <li><span>${dateStr}</span><a href="">${blog.title}</a></li>
+                            <li><span>${dateStr}</span><a href="${blog.url}">${blog.title}</a></li>
                 `;
             }
 
         }
         archives += '</ul></div>';
 
+        //博客主页
         var tpl = grunt.file.read(path.join(__dirname, 'blog/theme/template.html'));
         grunt.file.write(path.join(__dirname, 'blog/index.html'), tpl.replace('$content', lis));
 
+        //归档页面
         var tplArchive = grunt.file.read(path.join(__dirname, 'blog/theme/tpl-archive.html'));
         grunt.file.write(path.join(__dirname, 'blog/archive.html'), tplArchive.replace('$content', archives));
 

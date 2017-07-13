@@ -8,6 +8,6 @@ window.onresize = function () {
 window.onresize();
 
 //等背景图片下载完成后，淡入显示
-window.onload = function() {
-	document.getElementById('main-bg').style.opacity = '1';
-}
+// window.onload = function() {
+// 	document.getElementById('main-bg').style.opacity = '1';
+// }

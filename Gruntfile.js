@@ -149,7 +149,7 @@ module.exports = function(grunt) {
         markdown: {
             all: {
                 options: {
-                    template: './blog/theme/tpl-blog.html',
+                    template: './blog/template/tpl-blog.html',
                     markdownOptions: {
                         gfm: true,
                         highlight: 'manual',
@@ -302,18 +302,18 @@ module.exports = function(grunt) {
 
         });
 
-        let lis = '';
+        // let lis = '';
         let archives = '';
         let curYear;
         for (let i = 0; i < blogs.length; i++) {
             let blog = blogs[i];
-            lis += `
-                <li>
-                    <h1><a href="${blog.url}">${blog.title}</a></h1>
-                    <div class="icon-date date">${blog.date.format('yyyy年MM月dd日')}</div>
-                    <p>${blog.content}</p>
-                    <div class="read-more"><a href="${blog.url}">阅读更多<b class="icon-goto"></b></a></div>
-                </li>`;
+            // lis += `
+            //     <li>
+            //         <h1><a href="${blog.url}">${blog.title}</a></h1>
+            //         <div class="icon-date date">${blog.date.format('yyyy年MM月dd日')}</div>
+            //         <p>${blog.content}</p>
+            //         <div class="read-more"><a href="${blog.url}">阅读更多<b class="icon-goto"></b></a></div>
+            //     </li>`;
 
             let dateStr = blog.date.format('yyyy/MM/dd')
 
@@ -336,15 +336,14 @@ module.exports = function(grunt) {
         archives += '</ul></div>';
 
         //博客主页
-        var tpl = grunt.file.read(path.join(__dirname, 'blog/theme/template.html'));
-        grunt.file.write(path.join(__dirname, 'blog/index.html'), tpl.replace('$content', lis));
+        // var tpl = grunt.file.read(path.join(__dirname, 'blog/template/template.html'));
+        // grunt.file.write(path.join(__dirname, 'blog/index.html'), tpl.replace('$content', lis));
 
         //归档页面
-        var tplArchive = grunt.file.read(path.join(__dirname, 'blog/theme/tpl-archive.html'));
-        grunt.file.write(path.join(__dirname, 'blog/archive.html'), tplArchive.replace('$content', archives));
+        var tplArchive = grunt.file.read(path.join(__dirname, 'blog/template/tpl-archive.html'));
+        grunt.file.write(path.join(__dirname, 'blog/index.html'), tplArchive.replace('$content', archives));
 
         grunt.log.writeln('index.html created.');
-        grunt.log.writeln('archive.html created.');
     });
 
     grunt.registerMultiTask('tag', '', function() {

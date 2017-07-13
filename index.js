@@ -1,0 +1,21 @@
+const express = require('express');
+const app = express();
+const path = require('path');
+const bodyParser = require('body-parser');
+// const router = require('./router');
+
+//设置静态文件路径
+app.use(express.static('.'));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(router);
+
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, '/50x.html'), (err) => {
+		err && console.error(err);
+	});
+});
+
+app.listen(6868, () => {
+	console.log('listening on port 6868');
+});

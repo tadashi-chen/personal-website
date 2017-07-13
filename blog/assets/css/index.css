@@ -1,0 +1,188 @@
+@charset "UTF-8";
+/*变量*/
+.main {
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.main header {
+  padding: 50px 0 10px;
+  margin-bottom: -6px;
+}
+.main header h1 {
+  font-size: 38px;
+  color: #555;
+  font-family: '宋体', serif;
+  font-weight: 600;
+}
+.main header h1 a {
+  color: #555;
+}
+.main header p {
+  color: #999;
+  font-size: 14px;
+  margin-top: -4px;
+}
+.main nav {
+  display: flex;
+  flex-direction: row;
+}
+.main nav a {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  color: #444;
+  font-size: 13px;
+}
+.main nav a:before {
+  margin-right: 2px;
+}
+.main nav a:hover {
+  border-bottom: 1px solid #444;
+}
+.main nav > div {
+  border-bottom: 1px solid #ddd;
+}
+.main nav .selected {
+  border: 1px solid #ddd;
+  border-bottom: none;
+}
+.main nav .selected:hover {
+  border-bottom: none;
+}
+.main .content {
+  margin-top: 30px;
+}
+.main .content .year-blog {
+  padding-top: 10px;
+}
+.main .content .year-blog ul {
+  margin-left: 30px;
+  padding-left: 0px;
+}
+.main .content .year-blog ul li {
+  color: #6E7173;
+  margin: 6px 0;
+  font-size: 15px;
+}
+.main .content .year-blog ul li a {
+  margin-left: 12px;
+  color: #6E7173;
+}
+.main .content .year-blog ul li a:visited {
+  color: #6E7173;
+}
+.main .content .year-blog ul li a:hover {
+  text-decoration: underline;
+}
+
+#back_to_top {
+  position: fixed;
+  display: none;
+  right: 30px;
+  bottom: 50px;
+  color: #a2a2a2;
+  font-size: 36px;
+}
+
+.blog-content > p {
+  margin: 20px 0;
+  color: #444;
+  font-size: 15px;
+  line-height: 28px;
+}
+.blog-content > p a {
+  color: #2196f3;
+}
+.blog-content > p a:hover {
+  text-decoration: underline;
+}
+.blog-content li {
+  color: #444;
+  font-size: 15px;
+  line-height: 28px;
+  margin: 4px 0;
+}
+.blog-content li a {
+  color: #01579f;
+}
+.blog-content li a:hover {
+  text-decoration: underline;
+}
+.blog-content h1 {
+  font-size: 25px;
+  color: #555;
+  margin: 30px 0 0;
+}
+
+.date {
+  color: #6E7173;
+  margin: 10px 0 14px;
+}
+
+.date:before {
+  margin: 0 4px 0 2px;
+  font-size: 15px;
+}
+
+ul,
+ol {
+  padding-left: 40px;
+}
+
+pre {
+  font: 14px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+pre code {
+  padding: 20px 16px;
+  border-radius: 2px;
+}
+
+code {
+  background: #e2e6e6;
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 2px;
+  margin: 0px 4px;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 25px;
+  color: #444;
+}
+
+h4 {
+  color: #444;
+  font-weight: bold;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+table {
+  margin: auto auto 15px;
+  width: 100%;
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+}
+
+table th {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-bottom: 2px solid #909ba2;
+}
+
+table td {
+  padding: 5px 10px;
+}
+
+table tr:nth-child(2n) {
+  background: #f7f8f8;
+}
+
+a:visited {
+  color: #555;
+}

@@ -1,4 +1,10 @@
 node_modules/
 .sass-cache/
 dist/
-blog/
+blog/post/
+blog/dist/
+blog/2016/
+blog/2017/
+blog/2018/
+blog/index.html
+blog/archive.html

@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+/*变量*/
+
+$color1: #555;
+$color2: #999;
+$color3: #444;
+$color4: #ddd;
+$color5: #333;
+.main {
+    width: 100%;
+    max-width: 900px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    header {
+        padding: 50px 0 10px;
+        margin-bottom: -6px;
+        h1 {
+            font-size: 38px;
+            color: $color1;
+            font-family: '宋体', serif;
+            font-weight: 600;
+            a {
+                color: #555;
+            }
+        }
+        p {
+            color: $color2;
+            font-size: 14px;
+            margin-top: -4px;
+        }
+    }
+    nav {
+        display: flex;
+        flex-direction: row;
+        a {
+            border-bottom: 1px solid $color4;
+            text-align: center;
+            color: $color3;
+            font-size: 13px;
+        }
+        a:before {
+            margin-right: 2px;
+        }
+        a:hover {
+            border-bottom: 1px solid $color3;
+        }
+        > div {
+            border-bottom: 1px solid $color4;
+        }
+        .selected {
+            border: 1px solid $color4;
+            border-bottom: none;
+        }
+        .selected:hover {
+            border-bottom: none;
+        }
+    }
+    .content {
+        margin-top: 30px;
+        .year-blog {
+            padding-top: 10px;
+            ul {
+                margin-left: 30px;
+                padding-left: 0px;
+                li {
+                    color: #6E7173;
+                    margin: 6px 0;
+                    font-size: 15px;
+                    a {
+                        margin-left: 12px;
+                        color: #6E7173;
+                    }
+                    a:visited {
+                        color: #6E7173;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#back_to_top {
+    position: fixed;
+    display: none;
+    right: 30px;
+    bottom: 50px;
+    color: #a2a2a2;
+    font-size: 36px;
+}
+
+.blog-content {
+    > p {
+        margin: 20px 0;
+        color: #444;
+        font-size: 15px;
+        line-height: 28px;
+        a {
+            color: #2196f3;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    li {
+        color: #444;
+        font-size: 15px;
+        line-height: 28px;
+        margin: 4px 0;
+        a {
+            color: #01579f;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    h1 {
+        font-size: 25px;
+        color: #555;
+        margin: 30px 0 0;
+    }
+    .date {
+
+    }
+}
+
+.date {
+    color: #6E7173;
+    margin: 10px 0 14px;
+}
+.date:before {
+    margin: 0 4px 0 2px;
+    font-size: 15px;
+}
+
+ul,
+ol {
+    padding-left: 40px;
+}
+
+pre {
+    font: 14px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    code {
+        padding: 20px 16px;
+        border-radius: 2px;
+    }
+}
+
+code {
+    background: #e2e6e6;
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 2px;
+    margin: 0px 4px;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 25px;
+    color: #444;
+}
+
+h4 {
+    color: #444;
+    font-weight: bold;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+table {
+    margin: auto auto 15px;
+    width: 100%;
+    background: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+}
+
+table th {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-bottom: 2px solid #909ba2;
+}
+
+table td {
+    padding: 5px 10px;
+}
+
+table tr:nth-child(2n) {
+    background: #f7f8f8;
+}
+
+a:visited {
+    color: $color1;
+}

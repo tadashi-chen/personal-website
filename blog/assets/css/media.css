@@ -1,0 +1,36 @@
+@media screen and (max-width: 599px) and (orientation: portrait) {
+  body {
+    padding: 0 .4rem;
+  }
+
+  .main header {
+    text-align: center;
+    margin-bottom: 8px !important;
+  }
+  .main nav a {
+    height: 0.58rem;
+    line-height: 0.58rem;
+    width: 1.46rem;
+  }
+  .main nav > div {
+    height: 0.58rem;
+    flex: 1;
+  }
+}
+@media screen and (min-width: 600px) {
+  body {
+    padding: 0 100px;
+  }
+
+  .main nav a {
+    height: 36px;
+    line-height: 36px;
+    width: 84px;
+  }
+  .main nav > div {
+    height: 36px;
+  }
+  .main nav .blank-left {
+    flex: 1;
+  }
+}

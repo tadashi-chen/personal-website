@@ -1,0 +1,46 @@
+@media screen and (max-width:599px) and (orientation:portrait) {
+	$navHeight: .58rem;
+	body {
+		padding: 0 .4rem;
+	}
+	.main {
+		header {
+			text-align: center;
+			margin-bottom: 8px !important;
+		}
+		nav {
+	    	a {
+	    		height: $navHeight;
+	    		line-height: $navHeight;
+	    		width: 1.46rem;
+	    	}
+	    	> div {
+    			height: $navHeight;
+    			flex: 1;
+	    	}
+	    }
+	}
+}
+
+@media screen and (min-width:600px) {
+	$navHeight: 36px;
+	body {
+		padding: 0 100px;
+	}
+
+	.main {
+		nav {
+	    	a {
+	    		height: $navHeight;
+	    		line-height: $navHeight;
+    			width: 84px;
+	    	}
+	    	> div {
+    			height: $navHeight;
+	    	}
+	    	.blank-left {
+    			flex: 1;
+	    	}
+	    }
+	}
+}
